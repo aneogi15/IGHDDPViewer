@@ -1,13 +1,13 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
       Instagram HD DP Viewer
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header>
     <ion-toolbar>
       <ion-title size="default">IG HD DP Viewer</ion-title>
     </ion-toolbar>
@@ -20,10 +20,6 @@
         <ion-searchbar
         [(ngModel)]="searchInput">
       </ion-searchbar>
-      <!-- <ion-searchbar
-        [(ngModel)]="searchInput"
-        (ionInput)="onInput($event)">
-      </ion-searchbar> -->
       </ion-col>
     </ion-row>
     <ion-row>
@@ -31,7 +27,7 @@
         <ion-button expand="block" (click)="getProfilePicture(searchInput)">View DP</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button expand="block" (click)="downloadProfilePicture(searchInput)">Download DP</ion-button>
+        <ion-button disabled =true expand="block" (click)="downloadProfilePicture(searchInput)">Download DP</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -39,6 +35,6 @@
 
   <div id="container">
     <img *ngIf=!dpNotFound src={{imgUrl}}/>
-    <p *ngIf=dpNotFound>HD DP not found or username incorrect!!</p>
+    <p *ngIf=dpNotFound>{{dpStatusText}}</p>
   </div>
 </ion-content>
