@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
+import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { HomePageRoutingModule } from './home-routing.module';
     IonicModule,
     HomePageRoutingModule
   ],
+  providers: [FileTransfer],
   declarations: [HomePage]
 })
-export class HomePageModule {}
+export class HomePageModule { }

@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Instagram HD DP Viewer
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,36 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="default">IG HD DP Viewer</ion-title>
     </ion-toolbar>
   </ion-header>
 
+  <div>
+    <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-searchbar
+        [(ngModel)]="searchInput">
+      </ion-searchbar>
+      <!-- <ion-searchbar
+        [(ngModel)]="searchInput"
+        (ionInput)="onInput($event)">
+      </ion-searchbar> -->
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" (click)="getProfilePicture(searchInput)">View DP</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="block" (click)="downloadProfilePicture(searchInput)">Download DP</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </div>
+
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <img *ngIf=!dpNotFound src={{imgUrl}}/>
+    <p *ngIf=dpNotFound>HD DP not found or username incorrect!!</p>
   </div>
 </ion-content>
